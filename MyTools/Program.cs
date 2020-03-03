@@ -16,7 +16,7 @@ namespace MyTools
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExcelToDB());
+            Application.Run(new Main());
         }
     }
 }
