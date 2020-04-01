@@ -9,6 +9,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -84,6 +85,7 @@ namespace MyTools
                 for (var i = 0; i < ds.Tables.Count; i++)
                 {
                     var dt = ds.Tables[i];
+                    UseFirstRowName(dt);
                     RemoveFirstRow(dt);
                     if (dt.Rows.Count > 0)
                     {
@@ -135,6 +137,27 @@ namespace MyTools
             {
                 dt.Rows.RemoveAt(0);
             }
+        }
+
+        private void UseFirstRowName(DataTable dt)
+        {
+            if (cbUseFirstRowName.Checked && dt.Rows.Count > 0)
+            {
+                var header = dt.Rows[0].ItemArray;
+                for (var i = 0; i < header.Length; i++)
+                {
+                    var columnName = FormatColumnName(header[i], i);
+                    dt.Columns[i].ColumnName = columnName;
+                }
+            }
+        }
+
+        private string FormatColumnName(object name, int index)
+        {
+            var columnName = (name??"").ToString().Trim().Replace(' ', '_');
+            columnName = columnName == "" ? $"Column_{index}" : columnName;
+            columnName = Regex.Replace(columnName, "[^a-zA-Z0-9_]", "");
+            return columnName;
         }
     }
 }

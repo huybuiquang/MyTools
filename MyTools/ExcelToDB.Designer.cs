@@ -36,6 +36,7 @@
             this.txtResult = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbRemoveFirstRow = new System.Windows.Forms.CheckBox();
+            this.cbUseFirstRowName = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -108,11 +109,24 @@
             this.cbRemoveFirstRow.Text = "Remove First Row";
             this.cbRemoveFirstRow.UseVisualStyleBackColor = true;
             // 
+            // cbUseFirstRowName
+            // 
+            this.cbUseFirstRowName.AutoSize = true;
+            this.cbUseFirstRowName.Checked = true;
+            this.cbUseFirstRowName.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbUseFirstRowName.Location = new System.Drawing.Point(202, 59);
+            this.cbUseFirstRowName.Name = "cbUseFirstRowName";
+            this.cbUseFirstRowName.Size = new System.Drawing.Size(175, 17);
+            this.cbUseFirstRowName.TabIndex = 8;
+            this.cbUseFirstRowName.Text = "Use First Row as Column Name";
+            this.cbUseFirstRowName.UseVisualStyleBackColor = true;
+            // 
             // ExcelToDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 366);
+            this.Controls.Add(this.cbUseFirstRowName);
             this.Controls.Add(this.cbRemoveFirstRow);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtResult);
@@ -137,6 +151,7 @@
         private System.Windows.Forms.RichTextBox txtResult;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbRemoveFirstRow;
+        private System.Windows.Forms.CheckBox cbUseFirstRowName;
     }
 }
 
